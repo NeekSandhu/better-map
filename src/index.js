@@ -62,6 +62,11 @@ class BetterMap extends Map {
         return Array.from(this);
     }
 
+    hasValue(value) {
+
+        return this.findValue((v, k) => v === value) === value;
+    }
+
     filter(callback, thisArg) {
 
         const returnVal = new BetterMap();
@@ -74,6 +79,28 @@ class BetterMap extends Map {
         }
 
         return returnVal;
+    }
+
+    findKey(callback) {
+
+        return (this.find(callback) || {}).key;
+    }
+
+    findValue(callback) {
+
+        return (this.find(callback) || {}).value;
+    }
+    
+    find(callback) {
+
+        const keys = this.keys();
+        let key;
+        while (key = keys.next().value) {
+            const value = this.get(key);
+            if (callback(value, key, this) === true) {
+                return {key, value};
+            }
+        }
     }
 
     keysArray() {

@@ -3,6 +3,7 @@
   "version": "1.2.1",
   "description": "Map class with added sugar",
   "main": "src/index.js",
+  "typings": "src/index.d.ts",
   "scripts": {
     "test": "lab --lint --coverage --assert code",
     "travis": "lab --lint --coverage --assert code  -r lcov | node_modules/.bin/coveralls",

@@ -66,4 +66,4 @@ declare class BetterMap<K, V> extends Map<K, V> {
     valuesArray(): V[];
 }
 
-export { BetterMap };
+export default BetterMap;

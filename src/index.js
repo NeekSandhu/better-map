@@ -90,7 +90,7 @@ class BetterMap extends Map {
 
         return (this.find(callback) || {}).value;
     }
-    
+
     find(callback) {
 
         const keys = this.keys();
@@ -98,7 +98,7 @@ class BetterMap extends Map {
         while (key = keys.next().value) {
             const value = this.get(key);
             if (callback(value, key, this) === true) {
-                return {key, value};
+                return { key, value };
             }
         }
     }
@@ -162,3 +162,7 @@ class BetterMap extends Map {
 }
 
 exports = module.exports = BetterMap;
+
+// ES6 interops 
+exports.default = BetterMap;
+module.exports.default = BetterMap;
